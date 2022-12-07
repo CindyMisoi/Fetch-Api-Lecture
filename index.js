@@ -1,5 +1,4 @@
 // ARROW FUNCTIONS
-
 function addTwoNumbers(a, b) {
   return a + b;
 }
@@ -28,10 +27,14 @@ let result = isDivisible(myTotal); //true
 // and add content to the elements
 let createElementFunc = (element, content) => {
     console.log("Adding an element and its content")
+    const createElement = document.createElement(element)
+    createElement.textContent = content
+    return createElement
 }
 // create a function to append the added element to a desired destination
 let appendElementFunc = (element) => {
     console.log("add the element to the desired location")
+    document.querySelector("body").append(element)
 }
 
 
@@ -48,12 +51,10 @@ fetch(url)
     let posts = response
 
     for (post of posts){
-        console.log(post.title);
-    }
+      appendElementFunc(createElementFunc('li',post.title))
+      
+    } 
     // add a list of this posts to the html page
     // DOM MANIPULATION
-
-    createElementFunc()
-    appendElementFunc()
 
   });
